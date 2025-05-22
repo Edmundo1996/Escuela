@@ -1,8 +1,8 @@
-import express from 'express';
-import { login } from '../controllers/auth.controller'; // <--- sin .ts
+import { Router } from "express";
+import { login, getTimeToken } from "../controllers/auth.controller";
 
-const routes = express.Router();
+const router = Router();
 
-routes.post('/login', login as express.RequestHandler);
-
-export default routes;
+router.post("/login", login); // POST /api/auth/login
+router.post("/getTimeToken", getTimeToken); // POST /api/auth/getTimeToken
+export default router;
